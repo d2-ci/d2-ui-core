@@ -13,6 +13,15 @@ Object.defineProperty(exports, 'createClassName', {
   }
 });
 
+var _app = require('./app');
+
+Object.defineProperty(exports, 'App', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_app).default;
+  }
+});
+
 var _Action = require('./action/Action');
 
 Object.defineProperty(exports, 'Action', {
