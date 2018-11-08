@@ -1,6 +1,5 @@
 {
   "name": "@dhis2/d2-ui-core",
-  "version": "5.0.1",
   "description": "Core components for DHIS2 in d2-ui",
   "main": "./index.js",
   "module": "./index.js",
@@ -32,5 +31,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "version": "5.0.1"
 }
