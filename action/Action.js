@@ -2,8 +2,7 @@ import _Symbol from 'babel-runtime/core-js/symbol';
 import _Promise from 'babel-runtime/core-js/promise';
 import _Object$assign from 'babel-runtime/core-js/object/assign';
 import { isString } from 'lodash/fp';
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
+import { Observable, Subject } from 'rxjs';
 import log from 'loglevel';
 
 /**

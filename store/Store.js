@@ -7,8 +7,7 @@ import _createClass from 'babel-runtime/helpers/createClass';
 import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
 import _inherits from 'babel-runtime/helpers/inherits';
 import _Symbol from 'babel-runtime/core-js/symbol';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Observable } from 'rxjs/Observable';
+import { Observable, ReplaySubject } from 'rxjs';
 
 var publishState = _Symbol('publishState');
 var publishError = _Symbol('publishError');
