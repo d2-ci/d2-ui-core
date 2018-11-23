@@ -1,0 +1,106 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import MuiTextField from 'material-ui/TextField';
+import { createClassName } from '../component-helpers/utils';
+
+var TextField = function TextField(_ref) {
+  var type = _ref.type,
+      fullWidth = _ref.fullWidth,
+      label = _ref.label,
+      multiline = _ref.multiline,
+      _onChange = _ref.onChange,
+      placeholder = _ref.placeholder,
+      rows = _ref.rows,
+      rowsMax = _ref.rowsMax,
+      selector = _ref.selector,
+      style = _ref.style,
+      value = _ref.value,
+      onClick = _ref.onClick;
+
+  var className = createClassName('d2-ui-textfield', selector);
+
+  return React.createElement(MuiTextField, {
+    className: className,
+    floatingLabelText: label,
+    fullWidth: fullWidth,
+    hintText: placeholder,
+    multiLine: multiline,
+    onChange: function onChange(event, val) {
+      return _onChange(val);
+    },
+    rows: rows,
+    rowsMax: rowsMax,
+    style: style,
+    type: type,
+    value: value,
+    onClick: onClick,
+    floatingLabelStyle: { whiteSpace: 'nowrap' } // Avoids overlapping the input field
+  });
+};
+
+TextField.propTypes = {
+  /**
+   * If set, expands the TextField to the full width of its parent
+   */
+  fullWidth: PropTypes.bool,
+
+  /**
+   * The textfield label
+   */
+  label: PropTypes.string,
+
+  /**
+   * If set, allows textfield to expand to more than one line
+   */
+  multiline: PropTypes.bool,
+
+  /**
+   * onChange callback, that is fired when the textfield's value changes
+   *
+   * The onChange callback will receive one argument: The new value of the text field
+   */
+  onChange: PropTypes.func.isRequired,
+
+  /**
+  * onClick callback, that is fired when the textfield is clicked
+  *
+  */
+  onClick: PropTypes.func,
+
+  /**
+   * If set, sets the Hint text (v0.19)
+   */
+  placeholder: PropTypes.string,
+
+  /**
+   * If set, and multiline is true, sets the initial number of lines
+   */
+  rows: PropTypes.number,
+
+  /**
+   * If set, and multiline is true, sets the maximum number of lines
+   */
+  rowsMax: PropTypes.number,
+
+  /**
+   * If set, adds a class to the element in the format d2-ui-textfield-selector
+   */
+  selector: PropTypes.string,
+
+  /**
+   * Override the inline-styles of the root element
+   */
+  style: PropTypes.object,
+
+  /**
+   * The input type of the textfield
+   */
+  type: PropTypes.oneOf(['text', 'number']),
+
+  /**
+   * The value of the textfield
+   */
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};
+
+export default TextField;
