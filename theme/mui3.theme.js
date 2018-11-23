@@ -1,3 +1,4 @@
+import _defineProperty from 'babel-runtime/helpers/defineProperty';
 // Color palette from https://projects.invisionapp.com/share/A7LT4TJYETS#/screens/302550228_Color
 export var colors = {
     accentPrimary: '#1976d2',
@@ -9,6 +10,7 @@ export var colors = {
     accentSecondaryDark: '#004C40',
     accentSecondaryLight: '#48A999',
     accentSecondaryLightest: '#B2DFDB',
+    accentSecondaryBackground: '#D9ECEB',
 
     black: '#000000',
     greyBlack: '#494949',
@@ -74,7 +76,7 @@ export var palette = {
 };
 
 var spacingUnit = 8;
-
+var childSelectorMuiTypography = '& span[class^="MuiTypography"], & span[class*=" MuiTypography"]';
 export var theme = {
     colors: colors,
     palette: palette,
@@ -124,6 +126,39 @@ export var theme = {
                 '&> *:last-child': {
                     marginRight: 0
                 }
+            }
+        },
+        MuiInput: {
+            underline: {
+                '&:after': {
+                    borderBottom: '1px solid #aaa'
+                },
+                '&:before': {
+                    borderBottom: '1px solid ' + colors.greyLight
+                },
+                '&:hover:not($disabled):not($focused):not($error):before': {
+                    borderBottom: '1px solid ' + colors.greyLight
+                }
+            }
+        },
+        MuiMenuItem: {
+            root: _defineProperty({
+                paddingTop: spacingUnit,
+                paddingBottom: spacingUnit,
+                fontSize: '15px',
+                '&$selected': {
+                    backgroundColor: colors.accentSecondaryBackground
+                },
+                '&:hover': {
+                    backgroundColor: '#FAFAFA' // TODO: Make a theme color
+                }
+            }, childSelectorMuiTypography, {
+                fontSize: 'inherit'
+            })
+        },
+        MuiListItem: {
+            button: {
+                transitionDuration: '0s'
             }
         }
     }
