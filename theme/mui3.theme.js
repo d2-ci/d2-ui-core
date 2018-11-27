@@ -94,6 +94,23 @@ export var theme = {
                 backgroundColor: palette.divider // No light dividers for now
             }
         },
+        MuiDialog: {
+            paperWidthSm: {
+                flex: '0 1 400px',
+                width: '400px',
+                maxWidth: '400px'
+            },
+            paperWidthMd: {
+                flex: '0 1 600px',
+                width: '600px',
+                maxWidth: '600px'
+            },
+            paperWidthLg: {
+                flex: '0 1 800px',
+                width: '800px',
+                maxWidth: '800px'
+            }
+        },
         MuiDialogTitle: {
             root: {
                 fontSize: 16,
@@ -125,6 +142,13 @@ export var theme = {
 
                 '&> *:last-child': {
                     marginRight: 0
+                }
+            }
+        },
+        MuiSelect: {
+            select: {
+                '&:focus': {
+                    background: '$labelcolor'
                 }
             }
         },
