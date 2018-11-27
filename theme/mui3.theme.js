@@ -107,6 +107,7 @@ export var theme = {
             },
             paperWidthLg: {
                 flex: '0 1 800px',
+                width: '800px',
                 maxWidth: '800px'
             }
         },
