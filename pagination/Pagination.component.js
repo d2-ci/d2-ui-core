@@ -12,10 +12,10 @@ var noop = function noop() {};
 var Pagination = function (_Component) {
     _inherits(Pagination, _Component);
 
-    function Pagination(props) {
+    function Pagination() {
         _classCallCheck(this, Pagination);
 
-        return _possibleConstructorReturn(this, (Pagination.__proto__ || _Object$getPrototypeOf(Pagination)).call(this, props));
+        return _possibleConstructorReturn(this, (Pagination.__proto__ || _Object$getPrototypeOf(Pagination)).apply(this, arguments));
     }
 
     _createClass(Pagination, [{
