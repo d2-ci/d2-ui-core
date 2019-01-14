@@ -35,5 +35,6 @@
   "version": "5.0.17",
   "devDependencies": {
     "mkdirp": "^0.5.1"
-  }
+  },
+  "private": false
 }
