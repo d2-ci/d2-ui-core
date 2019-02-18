@@ -170,7 +170,6 @@ var PeriodPicker = function (_React$Component) {
                     floatingLabelText: this.getTranslation(name),
                     floatingLabelStyle: isInvalid ? { color: 'red' } : {}
                 },
-                React.createElement(MenuItem, { key: '', value: this.state[name], primaryText: '\xA0' }),
                 _Object$keys(options).sort().map(function (value) {
                     return React.createElement(MenuItem, {
                         key: value,
