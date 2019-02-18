@@ -75,6 +75,13 @@ var PeriodPicker = function (_React$Component) {
     }
 
     _createClass(PeriodPicker, [{
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps) {
+            if (this.props.periodType !== prevProps.periodType) {
+                this.handleChange();
+            }
+        }
+    }, {
         key: 'getPeriod',
         value: function getPeriod() {
             var week = this.props.periodType === 'BiWeekly' && this.state.biWeek ? biWeekToWeek(this.state.biWeek) : this.state.week;
