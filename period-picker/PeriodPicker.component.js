@@ -18,6 +18,7 @@ var styles = {
     year: { width: 95, marginRight: 16 },
     month: { width: 125 },
     week: { width: 105 },
+    biWeek: { width: 200 },
     biMonth: { width: 200 },
     quarter: { width: 200 },
     sixMonth: { width: 200 },
@@ -54,6 +55,10 @@ var isWeekValid = function isWeekValid(date, week) {
     );
 };
 
+var biWeekToWeek = function biWeekToWeek(biWeekStr) {
+    return parseInt(biWeekStr) * 2 - 1;
+};
+
 var PeriodPicker = function (_React$Component) {
     _inherits(PeriodPicker, _React$Component);
 
@@ -70,9 +75,18 @@ var PeriodPicker = function (_React$Component) {
     }
 
     _createClass(PeriodPicker, [{
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps) {
+            if (this.props.periodType !== prevProps.periodType) {
+                this.handleChange();
+            }
+        }
+    }, {
         key: 'getPeriod',
         value: function getPeriod() {
-            var date = this.state.year && this.state.week && getFirstDateOfWeek(this.state.year, this.state.week);
+            var week = this.props.periodType === 'BiWeekly' && this.state.biWeek ? biWeekToWeek(this.state.biWeek) : this.state.week;
+            var date = this.state.year && week && getFirstDateOfWeek(this.state.year, week);
+
             switch (this.props.periodType) {
                 case 'Daily':
                     return this.state.date && formattedDate(this.state.date);
@@ -101,6 +115,11 @@ var PeriodPicker = function (_React$Component) {
                         this.setState({ invalidWeek: !isWeekValid(date, this.state.week) });
                     }
                     return date && isWeekValid(date, this.state.week) && getWeekYear(date) + 'SunW' + this.state.week;
+                case 'BiWeekly':
+                    if (date) {
+                        this.setState({ invalidBiWeek: !isWeekValid(date, biWeekToWeek(this.state.biWeek)) });
+                    }
+                    return this.state.year && this.state.biWeek && this.state.year + 'BiW' + this.state.biWeek;
                 case 'Monthly':
                     return this.state.year && this.state.month && '' + this.state.year + this.state.month;
                 case 'BiMonthly':
@@ -140,7 +159,7 @@ var PeriodPicker = function (_React$Component) {
             var changeState = function changeState(e, i, value) {
                 return _this2.setState(_defineProperty({}, name, value), _this2.handleChange);
             };
-            var isInvalid = name === 'week' && this.state.invalidWeek;
+            var isInvalid = name === 'week' && this.state.invalidWeek || name === 'biWeek' && this.state.invalidBiWeek;
 
             return React.createElement(
                 SelectField,
@@ -151,12 +170,11 @@ var PeriodPicker = function (_React$Component) {
                     floatingLabelText: this.getTranslation(name),
                     floatingLabelStyle: isInvalid ? { color: 'red' } : {}
                 },
-                React.createElement(MenuItem, { key: '', value: this.state[name], primaryText: '\xA0' }),
                 _Object$keys(options).sort().map(function (value) {
                     return React.createElement(MenuItem, {
                         key: value,
                         value: value,
-                        primaryText: /[^0-9]/.test(options[value]) ? _this2.getTranslation(options[value]) : options[value]
+                        primaryText: /[^0-9]/.test(options[value]) && name !== 'biWeek' ? _this2.getTranslation(options[value]) : options[value]
                     });
                 })
             );
@@ -203,6 +221,18 @@ var PeriodPicker = function (_React$Component) {
             return this.renderOptionPicker('week', weeks);
         }
     }, {
+        key: 'renderBiWeekPicker',
+        value: function renderBiWeekPicker() {
+            var biWeeks = {};
+            var biWeekLimit = 27;
+            var prefix = this.getTranslation('bi_week');
+            for (var biWeek = 1; biWeek <= biWeekLimit; biWeek++) {
+                biWeeks[('0' + biWeek).substr(-2)] = prefix + ' ' + biWeek;
+            }
+
+            return this.renderOptionPicker('biWeek', biWeeks);
+        }
+    }, {
         key: 'renderBiMonthPicker',
         value: function renderBiMonthPicker() {
             var biMonths = { 1: 'jan-feb', 2: 'mar-apr', 3: 'may-jun', 4: 'jul-aug', 5: 'sep-oct', 6: 'nov-dec' };
@@ -244,6 +274,13 @@ var PeriodPicker = function (_React$Component) {
                         { style: styles.line },
                         this.renderYearPicker(),
                         this.renderWeekPicker()
+                    );
+                case 'BiWeekly':
+                    return React.createElement(
+                        'div',
+                        { style: styles.line },
+                        this.renderYearPicker(),
+                        this.renderBiWeekPicker()
                     );
                 case 'Monthly':
                     return React.createElement(
@@ -300,7 +337,7 @@ var PeriodPicker = function (_React$Component) {
 }(React.Component);
 
 PeriodPicker.propTypes = {
-    periodType: PropTypes.oneOf(['Daily', 'Weekly', 'WeeklyWednesday', 'WeeklyThursday', 'WeeklySaturday', 'WeeklySunday', 'Monthly', 'BiMonthly', 'Quarterly', 'SixMonthly', 'SixMonthlyApril', 'Yearly', 'FinancialApril', 'FinancialJuly', 'FinancialOct']).isRequired,
+    periodType: PropTypes.oneOf(['Daily', 'Weekly', 'WeeklyWednesday', 'WeeklyThursday', 'WeeklySaturday', 'WeeklySunday', 'BiWeekly', 'Monthly', 'BiMonthly', 'Quarterly', 'SixMonthly', 'SixMonthlyApril', 'Yearly', 'FinancialApril', 'FinancialJuly', 'FinancialOct']).isRequired,
 
     onPickPeriod: PropTypes.func.isRequired
 };
