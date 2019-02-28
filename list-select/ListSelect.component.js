@@ -1,8 +1,26 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import PropTypes from 'prop-types';
-import React from 'react';
+'use strict';
 
-export default function ListSelect(props) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+exports.default = ListSelect;
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ListSelect(props) {
     function listItemDoubleClicked(event) {
         var clickedItemValue = event.target.value;
 
@@ -12,7 +30,7 @@ export default function ListSelect(props) {
     }
 
     var options = props.source.map(function (item) {
-        return React.createElement(
+        return _react2.default.createElement(
             'option',
             {
                 key: item.value,
@@ -24,22 +42,22 @@ export default function ListSelect(props) {
         );
     });
 
-    return React.createElement(
+    return _react2.default.createElement(
         'div',
         { className: 'list-select' },
-        React.createElement(
+        _react2.default.createElement(
             'select',
-            { size: props.size || 15, style: _Object$assign({ overflowX: 'auto' }, props.listStyle) },
+            { size: props.size || 15, style: (0, _assign2.default)({ overflowX: 'auto' }, props.listStyle) },
             options
         )
     );
 }
 ListSelect.propTypes = {
-    source: PropTypes.arrayOf(PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
+    source: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+        label: _propTypes2.default.string,
+        value: _propTypes2.default.string
     })).isRequired,
-    onItemDoubleClick: PropTypes.func.isRequired,
-    listStyle: PropTypes.object,
-    size: PropTypes.number
+    onItemDoubleClick: _propTypes2.default.func.isRequired,
+    listStyle: _propTypes2.default.object,
+    size: _propTypes2.default.number
 };

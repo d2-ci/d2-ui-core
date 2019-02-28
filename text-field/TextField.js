@@ -1,7 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MuiTextField from 'material-ui/TextField';
-import { createClassName } from '../component-helpers/utils';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _TextField = require('material-ui/TextField');
+
+var _TextField2 = _interopRequireDefault(_TextField);
+
+var _utils = require('../component-helpers/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var TextField = function TextField(_ref) {
   var type = _ref.type,
@@ -17,9 +34,9 @@ var TextField = function TextField(_ref) {
       value = _ref.value,
       onClick = _ref.onClick;
 
-  var className = createClassName('d2-ui-textfield', selector);
+  var className = (0, _utils.createClassName)('d2-ui-textfield', selector);
 
-  return React.createElement(MuiTextField, {
+  return _react2.default.createElement(_TextField2.default, {
     className: className,
     floatingLabelText: label,
     fullWidth: fullWidth,
@@ -42,65 +59,65 @@ TextField.propTypes = {
   /**
    * If set, expands the TextField to the full width of its parent
    */
-  fullWidth: PropTypes.bool,
+  fullWidth: _propTypes2.default.bool,
 
   /**
    * The textfield label
    */
-  label: PropTypes.string,
+  label: _propTypes2.default.string,
 
   /**
    * If set, allows textfield to expand to more than one line
    */
-  multiline: PropTypes.bool,
+  multiline: _propTypes2.default.bool,
 
   /**
    * onChange callback, that is fired when the textfield's value changes
    *
    * The onChange callback will receive one argument: The new value of the text field
    */
-  onChange: PropTypes.func.isRequired,
+  onChange: _propTypes2.default.func.isRequired,
 
   /**
   * onClick callback, that is fired when the textfield is clicked
   *
   */
-  onClick: PropTypes.func,
+  onClick: _propTypes2.default.func,
 
   /**
    * If set, sets the Hint text (v0.19)
    */
-  placeholder: PropTypes.string,
+  placeholder: _propTypes2.default.string,
 
   /**
    * If set, and multiline is true, sets the initial number of lines
    */
-  rows: PropTypes.number,
+  rows: _propTypes2.default.number,
 
   /**
    * If set, and multiline is true, sets the maximum number of lines
    */
-  rowsMax: PropTypes.number,
+  rowsMax: _propTypes2.default.number,
 
   /**
    * If set, adds a class to the element in the format d2-ui-textfield-selector
    */
-  selector: PropTypes.string,
+  selector: _propTypes2.default.string,
 
   /**
    * Override the inline-styles of the root element
    */
-  style: PropTypes.object,
+  style: _propTypes2.default.object,
 
   /**
    * The input type of the textfield
    */
-  type: PropTypes.oneOf(['text', 'number']),
+  type: _propTypes2.default.oneOf(['text', 'number']),
 
   /**
    * The value of the textfield
    */
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])
 };
 
-export default TextField;
+exports.default = TextField;

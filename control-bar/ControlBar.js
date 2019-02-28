@@ -1,16 +1,57 @@
-import _Number$isInteger from 'babel-runtime/core-js/number/is-integer';
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import _extends from 'babel-runtime/helpers/extends';
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React from 'react';
-import PropTypes from 'prop-types';
+'use strict';
 
-import { createClassName } from '../component-helpers/utils';
-import SvgIcon from '../svg-icon/SvgIcon';
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.END_FLAP_HEIGHT = undefined;
+
+var _isInteger = require('babel-runtime/core-js/number/is-integer');
+
+var _isInteger2 = _interopRequireDefault(_isInteger);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _utils = require('../component-helpers/utils');
+
+var _SvgIcon = require('../svg-icon/SvgIcon');
+
+var _SvgIcon2 = _interopRequireDefault(_SvgIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
     root: {
@@ -52,7 +93,7 @@ var styles = {
 
 var BACKGROUND_RGB = '255,255,255';
 var BACKGROUND_RGB_EDIT = '255,248,224';
-export var END_FLAP_HEIGHT = 7;
+var END_FLAP_HEIGHT = exports.END_FLAP_HEIGHT = 7;
 
 /**
  * The ControlBar component can be used to put an expandable horizontal bar underneath the DHIS header bar, useful for
@@ -60,12 +101,12 @@ export var END_FLAP_HEIGHT = 7;
  */
 
 var ControlBar = function (_React$Component) {
-    _inherits(ControlBar, _React$Component);
+    (0, _inherits3.default)(ControlBar, _React$Component);
 
     function ControlBar(props) {
-        _classCallCheck(this, ControlBar);
+        (0, _classCallCheck3.default)(this, ControlBar);
 
-        var _this = _possibleConstructorReturn(this, (ControlBar.__proto__ || _Object$getPrototypeOf(ControlBar)).call(this, props));
+        var _this = (0, _possibleConstructorReturn3.default)(this, (ControlBar.__proto__ || (0, _getPrototypeOf2.default)(ControlBar)).call(this, props));
 
         _this.onStartDrag = function () {
             _this.setState({ dragging: true });
@@ -102,7 +143,7 @@ var ControlBar = function (_React$Component) {
         return _this;
     }
 
-    _createClass(ControlBar, [{
+    (0, _createClass3.default)(ControlBar, [{
         key: 'getEndFlapHeight',
         value: function getEndFlapHeight() {
             return this.showDragHandle() ? END_FLAP_HEIGHT : 0;
@@ -117,31 +158,31 @@ var ControlBar = function (_React$Component) {
         value: function renderEndFlap() {
             var backgroundColor = this.props.editMode ? BACKGROUND_RGB_EDIT : BACKGROUND_RGB;
 
-            var endFlapStyle = _extends({}, styles.endFlap, {
+            var endFlapStyle = (0, _extends3.default)({}, styles.endFlap, {
                 height: this.getEndFlapHeight(),
                 backgroundColor: 'lightblue'
             });
 
-            var dragFlapStyle = _extends({}, styles.dragHandle, {
+            var dragFlapStyle = (0, _extends3.default)({}, styles.dragHandle, {
                 cursor: this.props.expandable ? 'ns-resize' : 'auto',
                 height: this.getEndFlapHeight(),
                 backgroundColor: 'rgb(' + backgroundColor + ')'
             });
 
-            var props = _Object$assign({}, this.showDragHandle() && this.props.expandable ? { onMouseDown: this.onStartDrag } : {});
+            var props = (0, _assign2.default)({}, this.showDragHandle() && this.props.expandable ? { onMouseDown: this.onStartDrag } : {});
 
             // Disable jsx-a11y no-role rule, because what's the alternative?
             /* eslint-disable jsx-a11y/no-static-element-interactions */
-            return React.createElement(
+            return _react2.default.createElement(
                 'div',
                 { className: 'd2-ui-control-bar-endflap', style: endFlapStyle },
-                React.createElement(
+                _react2.default.createElement(
                     'div',
-                    _extends({
+                    (0, _extends3.default)({
                         className: 'd2-ui-control-bar-dragflap',
                         style: dragFlapStyle
                     }, props),
-                    React.createElement(SvgIcon, { className: 'd2-ui-control-bar-dragflap-icon', icon: 'DragHandle', style: { marginTop: -7, fill: 'rgba(0,0,0,0.3)' } })
+                    _react2.default.createElement(_SvgIcon2.default, { className: 'd2-ui-control-bar-dragflap-icon', icon: 'DragHandle', style: { marginTop: -7, fill: 'rgba(0,0,0,0.3)' } })
                 )
             );
             /* eslint-enable jsx-a11y/no-static-element-interactions */
@@ -149,12 +190,12 @@ var ControlBar = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var className = createClassName('d2-ui-control-bar', this.props.selector);
-            var contentClassName = createClassName('d2-ui-control-bar-contents', this.props.selector);
+            var className = (0, _utils.createClassName)('d2-ui-control-bar', this.props.selector);
+            var contentClassName = (0, _utils.createClassName)('d2-ui-control-bar-contents', this.props.selector);
 
             var height = Math.max(this.props.height, 0) + this.getEndFlapHeight();
 
-            var rootStyle = _Object$assign({}, styles.root,
+            var rootStyle = (0, _assign2.default)({}, styles.root,
             // Adjust height to make room for extra components
             { height: height },
             // Set background color for edit mode
@@ -164,10 +205,10 @@ var ControlBar = function (_React$Component) {
             // Make room for the end flap
             { paddingBottom: this.getEndFlapHeight() });
 
-            return React.createElement(
+            return _react2.default.createElement(
                 'div',
                 { style: rootStyle, className: className },
-                React.createElement(
+                _react2.default.createElement(
                     'div',
                     { style: styles.content, className: contentClassName },
                     this.props.children
@@ -176,13 +217,12 @@ var ControlBar = function (_React$Component) {
             );
         }
     }]);
-
     return ControlBar;
-}(React.Component);
+}(_react2.default.Component);
 
 var positiveIntegerPropValidator = function positiveIntegerPropValidator(props, propName, componentName) {
     var propValue = props[propName];
-    if (isNaN(parseFloat(propValue)) || !isFinite(propValue) || !_Number$isInteger(propValue) || props[propName] < 1) {
+    if (isNaN(parseFloat(propValue)) || !isFinite(propValue) || !(0, _isInteger2.default)(propValue) || props[propName] < 1) {
         // eslint-disable-next-line max-len
         return new Error('Invalid prop `' + propName + '` with value `' + propValue + '` supplied to component `' + componentName + '`: Must be a positive integer');
     }
@@ -198,7 +238,7 @@ ControlBar.propTypes = {
     /**
      * If true, the background color of the control bar changes to indicate that edit mode is active.
      */
-    editMode: PropTypes.bool,
+    editMode: _propTypes2.default.bool,
 
     /**
      * Callback function that is called when the control bar is resized.
@@ -206,7 +246,7 @@ ControlBar.propTypes = {
      *
      * If no callback is specified the control bar will not have a drag handle.
      */
-    onChangeHeight: PropTypes.func,
+    onChangeHeight: _propTypes2.default.func,
 
     /**
      * Callback function that is called when the control bar is dropped after being dragged.
@@ -214,22 +254,22 @@ ControlBar.propTypes = {
      *
      * Ignored if no "onChangeHeight" function is provided.
      */
-    onEndDrag: PropTypes.func,
+    onEndDrag: _propTypes2.default.func,
 
     /**
      * The contents of the control bar.
      */
-    children: PropTypes.node.isRequired,
+    children: _propTypes2.default.node.isRequired,
 
     /**
      * If set, adds a class to the element in the format d2-ui-control-bar-selector
      */
-    selector: PropTypes.string,
+    selector: _propTypes2.default.string,
 
     /**
      * If set, the control bar is vertically expandable by dragging the end flap
      */
-    expandable: PropTypes.bool
+    expandable: _propTypes2.default.bool
 };
 
 ControlBar.defaultProps = {
@@ -241,4 +281,4 @@ ControlBar.defaultProps = {
     expandable: true
 };
 
-export default ControlBar;
+exports.default = ControlBar;

@@ -1,9 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import { createClassName } from '../component-helpers/utils';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _FlatButton = require('material-ui/FlatButton');
+
+var _FlatButton2 = _interopRequireDefault(_FlatButton);
+
+var _RaisedButton = require('material-ui/RaisedButton');
+
+var _RaisedButton2 = _interopRequireDefault(_RaisedButton);
+
+var _FloatingActionButton = require('material-ui/FloatingActionButton');
+
+var _FloatingActionButton2 = _interopRequireDefault(_FloatingActionButton);
+
+var _utils = require('../component-helpers/utils');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Button = function Button(_ref) {
     var raised = _ref.raised,
@@ -15,16 +38,16 @@ var Button = function Button(_ref) {
         style = _ref.style,
         selector = _ref.selector;
 
-    var className = createClassName('d2-ui-button', selector);
+    var className = (0, _utils.createClassName)('d2-ui-button', selector);
     var MuiButton = void 0;
 
     if (fab) {
         // Always raised
-        MuiButton = FloatingActionButton;
+        MuiButton = _FloatingActionButton2.default;
     } else if (raised) {
-        MuiButton = RaisedButton;
+        MuiButton = _RaisedButton2.default;
     } else {
-        MuiButton = FlatButton;
+        MuiButton = _FlatButton2.default;
     }
 
     var props = {
@@ -41,7 +64,7 @@ var Button = function Button(_ref) {
     if (fab) {
         delete props.primary;
     }
-    return React.createElement(
+    return _react2.default.createElement(
         MuiButton,
         props,
         typeof children !== 'string' ? children : null
@@ -52,22 +75,22 @@ Button.propTypes = {
     /**
      * If true, the button will use raised styling
      */
-    raised: PropTypes.bool,
+    raised: _propTypes2.default.bool,
 
     /**
      * If true, the button will use floating action styling
      */
-    fab: PropTypes.bool,
+    fab: _propTypes2.default.bool,
 
     /**
      *  If true, the button will be disabled
      */
-    disabled: PropTypes.bool,
+    disabled: _propTypes2.default.bool,
 
     /**
      * The theme color of the button
      */
-    color: PropTypes.oneOf(['default', 'primary', 'accent']),
+    color: _propTypes2.default.oneOf(['default', 'primary', 'accent']),
 
     /**
      * onClick callback, which is triggered when the button is clicked
@@ -75,17 +98,17 @@ Button.propTypes = {
      * The onClick callback will receive one arguments: TouchTap event targeting the button
      *
      */
-    onClick: PropTypes.func.isRequired,
+    onClick: _propTypes2.default.func.isRequired,
 
     /**
      * Override the inline-styles of the root element
      */
-    style: PropTypes.object,
+    style: _propTypes2.default.object,
 
     /**
      * If set, adds a class to the element in the format d2-ui-button-selector
      */
-    selector: PropTypes.string
+    selector: _propTypes2.default.string
 };
 
-export default Button;
+exports.default = Button;

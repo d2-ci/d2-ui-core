@@ -1,31 +1,66 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import _Object$keys from 'babel-runtime/core-js/object/keys';
-import _Promise from 'babel-runtime/core-js/promise';
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import _Symbol from 'babel-runtime/core-js/symbol';
-import { Observable, ReplaySubject } from 'rxjs';
+'use strict';
 
-var publishState = _Symbol('publishState');
-var publishError = _Symbol('publishError');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-var observableSymbol = _Symbol('observable');
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
+var _promise = require('babel-runtime/core-js/promise');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _symbol = require('babel-runtime/core-js/symbol');
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _rxjs = require('rxjs');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var publishState = (0, _symbol2.default)('publishState');
+var publishError = (0, _symbol2.default)('publishError');
+
+var observableSymbol = (0, _symbol2.default)('observable');
 
 var Store = function (_Observable) {
-    _inherits(Store, _Observable);
+    (0, _inherits3.default)(Store, _Observable);
 
     function Store(initialValue) {
-        _classCallCheck(this, Store);
+        (0, _classCallCheck3.default)(this, Store);
 
-        var _this = _possibleConstructorReturn(this, (Store.__proto__ || _Object$getPrototypeOf(Store)).call(this));
+        var _this = (0, _possibleConstructorReturn3.default)(this, (Store.__proto__ || (0, _getPrototypeOf2.default)(Store)).call(this));
 
-        _this[observableSymbol] = new ReplaySubject(1);
+        _this[observableSymbol] = new _rxjs.ReplaySubject(1);
 
         if (initialValue) {
-            _Promise.resolve(initialValue).then(function (value) {
+            _promise2.default.resolve(initialValue).then(function (value) {
                 _this.setState(value);
             }).catch(function (error) {
                 _this[publishError](error);
@@ -34,7 +69,7 @@ var Store = function (_Observable) {
         return _this;
     }
 
-    _createClass(Store, [{
+    (0, _createClass3.default)(Store, [{
         key: 'setState',
         value: function setState(newState) {
             this.state = newState;
@@ -92,7 +127,7 @@ var Store = function (_Observable) {
                     initialState = storeConfig && storeConfig.getInitialState();
                 }
 
-                _Object$keys(storeConfig).filter(function (keyName) {
+                (0, _keys2.default)(storeConfig).filter(function (keyName) {
                     return keyName !== 'getInitialState';
                 }).forEach(function (keyName) {
                     mergeObject[keyName] = storeConfig[keyName];
@@ -100,11 +135,10 @@ var Store = function (_Observable) {
                 });
             }
 
-            return _Object$assign(new Store(initialState), mergeObject);
+            return (0, _assign2.default)(new Store(initialState), mergeObject);
         }
     }]);
-
     return Store;
-}(Observable);
+}(_rxjs.Observable);
 
-export default Store;
+exports.default = Store;

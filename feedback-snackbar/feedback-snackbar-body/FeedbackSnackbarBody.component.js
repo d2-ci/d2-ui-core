@@ -1,14 +1,46 @@
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { CircularProgress } from 'material-ui';
-import FontIcon from 'material-ui/FontIcon';
+'use strict';
 
-import { ERROR, LOADING, SUCCESS } from '../FeedbackSnackbarTypes';
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _materialUi = require('material-ui');
+
+var _FontIcon = require('material-ui/FontIcon');
+
+var _FontIcon2 = _interopRequireDefault(_FontIcon);
+
+var _FeedbackSnackbarTypes = require('../FeedbackSnackbarTypes');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
     content: {
@@ -24,48 +56,47 @@ var styles = {
 };
 
 var FeedbackSnackbarBody = function (_PureComponent) {
-    _inherits(FeedbackSnackbarBody, _PureComponent);
+    (0, _inherits3.default)(FeedbackSnackbarBody, _PureComponent);
 
     function FeedbackSnackbarBody() {
-        _classCallCheck(this, FeedbackSnackbarBody);
-
-        return _possibleConstructorReturn(this, (FeedbackSnackbarBody.__proto__ || _Object$getPrototypeOf(FeedbackSnackbarBody)).apply(this, arguments));
+        (0, _classCallCheck3.default)(this, FeedbackSnackbarBody);
+        return (0, _possibleConstructorReturn3.default)(this, (FeedbackSnackbarBody.__proto__ || (0, _getPrototypeOf2.default)(FeedbackSnackbarBody)).apply(this, arguments));
     }
 
-    _createClass(FeedbackSnackbarBody, [{
+    (0, _createClass3.default)(FeedbackSnackbarBody, [{
         key: 'render',
         value: function render() {
             var icon = void 0;
             switch (this.props.type) {
-                case SUCCESS:
-                    icon = React.createElement(
-                        FontIcon,
+                case _FeedbackSnackbarTypes.SUCCESS:
+                    icon = _react2.default.createElement(
+                        _FontIcon2.default,
                         { className: 'material-icons', style: styles.icon },
                         'done'
                     );
                     break;
-                case LOADING:
-                    icon = React.createElement(CircularProgress, { style: styles.icon, color: '#ffffff', size: 28, thickness: 2 });
+                case _FeedbackSnackbarTypes.LOADING:
+                    icon = _react2.default.createElement(_materialUi.CircularProgress, { style: styles.icon, color: '#ffffff', size: 28, thickness: 2 });
                     break;
-                case ERROR:
-                    icon = React.createElement(
-                        FontIcon,
+                case _FeedbackSnackbarTypes.ERROR:
+                    icon = _react2.default.createElement(
+                        _FontIcon2.default,
                         { className: 'material-icons', style: styles.icon },
                         'error'
                     );
                     break;
                 default:
-                    icon = React.createElement(
-                        FontIcon,
+                    icon = _react2.default.createElement(
+                        _FontIcon2.default,
                         { className: 'material-icons', style: styles.icon },
                         'warning'
                     );
                     break;
             }
-            var snackBarContent = React.createElement(
+            var snackBarContent = _react2.default.createElement(
                 'div',
                 { style: styles.content },
-                React.createElement(
+                _react2.default.createElement(
                     'div',
                     null,
                     this.props.message
@@ -75,18 +106,15 @@ var FeedbackSnackbarBody = function (_PureComponent) {
             return snackBarContent;
         }
     }]);
-
     return FeedbackSnackbarBody;
-}(PureComponent);
+}(_react.PureComponent);
 
 FeedbackSnackbarBody.propTypes = {
-    type: PropTypes.string,
-    message: PropTypes.string
+    type: _propTypes2.default.string,
+    message: _propTypes2.default.string
 };
 FeedbackSnackbarBody.defaultProps = {
     type: '',
     message: ''
 };
-
-
-export default FeedbackSnackbarBody;
+exports.default = FeedbackSnackbarBody;

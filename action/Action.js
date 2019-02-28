@@ -1,9 +1,30 @@
-import _Symbol from 'babel-runtime/core-js/symbol';
-import _Promise from 'babel-runtime/core-js/promise';
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import { isString } from 'lodash/fp';
-import { Observable, Subject } from 'rxjs';
-import log from 'loglevel';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _symbol = require('babel-runtime/core-js/symbol');
+
+var _symbol2 = _interopRequireDefault(_symbol);
+
+var _promise = require('babel-runtime/core-js/promise');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _fp = require('lodash/fp');
+
+var _rxjs = require('rxjs');
+
+var _loglevel = require('loglevel');
+
+var _loglevel2 = _interopRequireDefault(_loglevel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
  * @class Action
@@ -28,33 +49,33 @@ var Action = {
     create: function create() {
         var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'AnonymousAction';
 
-        var subject = _Object$assign(function () {
+        var subject = (0, _assign2.default)(function () {
             for (var _len = arguments.length, actionArgs = Array(_len), _key = 0; _key < _len; _key++) {
                 actionArgs[_key] = arguments[_key];
             }
 
-            log.trace('Firing action: ' + subject.id.toString());
-            return Observable.fromPromise(new _Promise(function (resolve, reject) {
+            _loglevel2.default.trace('Firing action: ' + subject.id.toString());
+            return _rxjs.Observable.fromPromise(new _promise2.default(function (resolve, reject) {
                 subject.next({
                     // Pass one argument if there is just one else pass the arguments as an array
                     data: actionArgs.length === 1 ? actionArgs[0] : [].concat(actionArgs),
                     // Callback to complete the action
                     complete: function complete() {
                         resolve.apply(undefined, arguments);
-                        log.trace('Completed action: ' + subject.id.toString());
+                        _loglevel2.default.trace('Completed action: ' + subject.id.toString());
                     },
                     // Callback to error the action
                     error: function error() {
                         reject.apply(undefined, arguments);
-                        log.debug('Errored action: ' + subject.id.toString());
+                        _loglevel2.default.debug('Errored action: ' + subject.id.toString());
                     }
                 });
             }));
-        }, Observable.prototype, Subject.prototype);
+        }, _rxjs.Observable.prototype, _rxjs.Subject.prototype);
 
-        Object.defineProperty(subject, 'id', { value: _Symbol(name) });
+        Object.defineProperty(subject, 'id', { value: (0, _symbol2.default)(name) });
 
-        Subject.call(subject);
+        _rxjs.Subject.call(subject);
 
         return subject;
     },
@@ -80,7 +101,7 @@ var Action = {
         var actions = {};
         var actionPrefix = prefix;
 
-        if (prefix && isString(prefix)) {
+        if (prefix && (0, _fp.isString)(prefix)) {
             actionPrefix = prefix + '.';
         } else {
             actionPrefix = '';
@@ -94,4 +115,4 @@ var Action = {
     }
 };
 
-export default Action;
+exports.default = Action;

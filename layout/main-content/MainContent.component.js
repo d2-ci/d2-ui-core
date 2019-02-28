@@ -1,5 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function MainContent(props) {
     var mainContentStyle = {
@@ -7,14 +20,14 @@ function MainContent(props) {
         width: '100%'
     };
 
-    return React.createElement(
+    return _react2.default.createElement(
         'div',
         { style: mainContentStyle },
         props.children
     );
 }
 MainContent.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.array.isRequired, PropTypes.object.isRequired])
+    children: _propTypes2.default.oneOfType([_propTypes2.default.array.isRequired, _propTypes2.default.object.isRequired])
 };
 
-export default MainContent;
+exports.default = MainContent;

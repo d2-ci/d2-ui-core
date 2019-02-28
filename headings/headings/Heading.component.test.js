@@ -1,6 +1,16 @@
-import { shallow } from 'enzyme';
-import React from 'react';
-import Heading from '../Heading.component';
+'use strict';
+
+var _enzyme = require('enzyme');
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Heading = require('../Heading.component');
+
+var _Heading2 = _interopRequireDefault(_Heading);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 describe('Heading component', function () {
     var renderedHeading = void 0;
@@ -8,7 +18,7 @@ describe('Heading component', function () {
     var renderComponent = function renderComponent() {
         var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-        renderedHeading = shallow(React.createElement(Heading, props));
+        renderedHeading = (0, _enzyme.shallow)(_react2.default.createElement(_Heading2.default, props));
     };
 
     it('should render a h1 tag with the title', function () {

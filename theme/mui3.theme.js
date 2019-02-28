@@ -1,6 +1,18 @@
-import _defineProperty from 'babel-runtime/helpers/defineProperty';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.theme = exports.palette = exports.colors = undefined;
+
+var _defineProperty2 = require('babel-runtime/helpers/defineProperty');
+
+var _defineProperty3 = _interopRequireDefault(_defineProperty2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 // Color palette from https://projects.invisionapp.com/share/A7LT4TJYETS#/screens/302550228_Color
-export var colors = {
+var colors = exports.colors = {
     accentPrimary: '#1976d2',
     accentPrimaryDark: '#004BA0',
     accentPrimaryLight: '#63A4FF',
@@ -26,7 +38,7 @@ export var colors = {
     info: '#EAF4FF'
 };
 
-export var palette = {
+var palette = exports.palette = {
     common: {
         white: colors.white,
         black: colors.black
@@ -77,7 +89,7 @@ export var palette = {
 
 var spacingUnit = 8;
 var childSelectorMuiTypography = '& span[class^="MuiTypography"], & span[class*=" MuiTypography"]';
-export var theme = {
+var theme = exports.theme = {
     colors: colors,
     palette: palette,
     typography: {
@@ -166,7 +178,7 @@ export var theme = {
             }
         },
         MuiMenuItem: {
-            root: _defineProperty({
+            root: (0, _defineProperty3.default)({
                 paddingTop: spacingUnit,
                 paddingBottom: spacingUnit,
                 fontSize: '15px',
@@ -188,4 +200,4 @@ export var theme = {
     }
 };
 
-export default theme;
+exports.default = theme;

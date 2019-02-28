@@ -1,15 +1,58 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-import TextField from 'material-ui/TextField';
-import FontIcon from 'material-ui/FontIcon';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _List = require('material-ui/List/List');
+
+var _List2 = _interopRequireDefault(_List);
+
+var _ListItem = require('material-ui/List/ListItem');
+
+var _ListItem2 = _interopRequireDefault(_ListItem);
+
+var _TextField = require('material-ui/TextField');
+
+var _TextField2 = _interopRequireDefault(_TextField);
+
+var _FontIcon = require('material-ui/FontIcon');
+
+var _FontIcon2 = _interopRequireDefault(_FontIcon);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
     container: {
@@ -52,20 +95,20 @@ var styles = {
 };
 
 var Sidebar = function (_Component) {
-    _inherits(Sidebar, _Component);
+    (0, _inherits3.default)(Sidebar, _Component);
 
     function Sidebar() {
         var _ref;
 
         var _temp, _this, _ret;
 
-        _classCallCheck(this, Sidebar);
+        (0, _classCallCheck3.default)(this, Sidebar);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Sidebar.__proto__ || _Object$getPrototypeOf(Sidebar)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Sidebar.__proto__ || (0, _getPrototypeOf2.default)(Sidebar)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             currentSection: _this.props.currentSection || _this.props.sections[0] && _this.props.sections[0].key,
             searchText: ''
         }, _this.changeSearchText = function () {
@@ -80,10 +123,10 @@ var Sidebar = function (_Component) {
                     _this.props.onChangeSearchText(_this.state.searchText);
                 }
             });
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
     }
 
-    _createClass(Sidebar, [{
+    (0, _createClass3.default)(Sidebar, [{
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(props) {
             var _this2 = this;
@@ -119,7 +162,7 @@ var Sidebar = function (_Component) {
         key: 'renderSidebarButtons',
         value: function renderSidebarButtons() {
             if (this.props.sideBarButtons) {
-                return React.createElement(
+                return _react2.default.createElement(
                     'div',
                     { style: { padding: '1rem 0 0' } },
                     this.props.sideBarButtons
@@ -133,10 +176,10 @@ var Sidebar = function (_Component) {
             var _this3 = this;
 
             if (this.props.showSearchField) {
-                return React.createElement(
+                return _react2.default.createElement(
                     'div',
                     { style: styles.container },
-                    React.createElement(TextField, {
+                    _react2.default.createElement(_TextField2.default, {
                         hintText: this.props.searchFieldLabel,
                         style: { width: '100%' },
                         value: this.state.searchText,
@@ -145,8 +188,8 @@ var Sidebar = function (_Component) {
                             _this3.searchBox = _ref2;
                         }
                     }),
-                    this.state.searchText ? React.createElement(
-                        FontIcon,
+                    this.state.searchText ? _react2.default.createElement(
+                        _FontIcon2.default,
                         { style: styles.closeButton, className: 'material-icons', onClick: this.onClear },
                         'clear'
                     ) : undefined
@@ -160,18 +203,18 @@ var Sidebar = function (_Component) {
         value: function renderSections() {
             var _this4 = this;
 
-            return React.createElement(
-                List,
+            return _react2.default.createElement(
+                _List2.default,
                 { style: styles.list },
                 this.props.sections.map(function (section) {
                     var listItemStyle = section.key === _this4.state.currentSection && !_this4.state.searchText ? styles.activeItem : styles.item;
-                    var icon = typeof section.icon === 'string' || section.icon instanceof String ? React.createElement(
-                        FontIcon,
+                    var icon = typeof section.icon === 'string' || section.icon instanceof String ? _react2.default.createElement(
+                        _FontIcon2.default,
                         { className: 'material-icons' },
                         section.icon
                     ) : section.icon;
 
-                    return React.createElement(ListItem, {
+                    return _react2.default.createElement(_ListItem2.default, {
                         key: section.key,
                         primaryText: section.label,
                         onClick: _this4.setSection.bind(_this4, section.key),
@@ -185,40 +228,39 @@ var Sidebar = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
-            return React.createElement(
+            return _react2.default.createElement(
                 'div',
-                { style: _Object$assign(styles.sidebar, this.props.styles.leftBar), className: 'left-bar' },
+                { style: (0, _assign2.default)(styles.sidebar, this.props.styles.leftBar), className: 'left-bar' },
                 this.renderSidebarButtons(),
                 this.renderSearchField(),
                 this.renderSections()
             );
         }
     }]);
-
     return Sidebar;
-}(Component);
+}(_react.Component);
 
 Sidebar.propTypes = {
-    sections: PropTypes.arrayOf(PropTypes.shape({
-        key: PropTypes.string,
-        label: PropTypes.string,
-        containerElement: PropTypes.object,
-        icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
+    sections: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+        key: _propTypes2.default.string,
+        label: _propTypes2.default.string,
+        containerElement: _propTypes2.default.object,
+        icon: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.element])
     })).isRequired,
-    currentSection: PropTypes.string,
-    onChangeSection: PropTypes.func,
-    onSectionClick: PropTypes.func,
-    showSearchField: PropTypes.bool,
-    searchFieldLabel: PropTypes.string,
-    onChangeSearchText: PropTypes.func,
-    sideBarButtons: PropTypes.element,
-    styles: PropTypes.shape({
-        leftBar: PropTypes.object
+    currentSection: _propTypes2.default.string,
+    onChangeSection: _propTypes2.default.func,
+    onSectionClick: _propTypes2.default.func,
+    showSearchField: _propTypes2.default.bool,
+    searchFieldLabel: _propTypes2.default.string,
+    onChangeSearchText: _propTypes2.default.func,
+    sideBarButtons: _propTypes2.default.element,
+    styles: _propTypes2.default.shape({
+        leftBar: _propTypes2.default.object
     })
 };
 
 Sidebar.contextTypes = {
-    muiTheme: PropTypes.object
+    muiTheme: _propTypes2.default.object
 };
 
 Sidebar.defaultProps = {
@@ -229,4 +271,4 @@ Sidebar.defaultProps = {
     onSectionClick: function onSectionClick() {}
 };
 
-export default Sidebar;
+exports.default = Sidebar;

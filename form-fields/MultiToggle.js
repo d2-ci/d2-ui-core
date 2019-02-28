@@ -1,40 +1,72 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+'use strict';
 
-// Material UI
-import Checkbox from 'material-ui/Checkbox';
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _Checkbox = require('material-ui/Checkbox');
+
+var _Checkbox2 = _interopRequireDefault(_Checkbox);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MultiToggle = function (_Component) {
-    _inherits(MultiToggle, _Component);
+    (0, _inherits3.default)(MultiToggle, _Component);
 
     function MultiToggle() {
         var _ref;
 
         var _temp, _this, _ret;
 
-        _classCallCheck(this, MultiToggle);
+        (0, _classCallCheck3.default)(this, MultiToggle);
 
         for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = MultiToggle.__proto__ || _Object$getPrototypeOf(MultiToggle)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+        return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = MultiToggle.__proto__ || (0, _getPrototypeOf2.default)(MultiToggle)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
             values: _this.props.items.reduce(function (prev, curr) {
                 if (curr.value) {
                     prev.push(curr.name);
                 }
                 return prev;
             }, [])
-        }, _temp), _possibleConstructorReturn(_this, _ret);
+        }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
     }
 
-    _createClass(MultiToggle, [{
+    (0, _createClass3.default)(MultiToggle, [{
         key: 'handleToggle',
         value: function handleToggle(value, event, checked) {
             var _this2 = this;
@@ -57,12 +89,12 @@ var MultiToggle = function (_Component) {
         value: function render() {
             var _this3 = this;
 
-            var style = _Object$assign({}, this.context.muiTheme.forms, this.props.style);
+            var style = (0, _assign2.default)({}, this.context.muiTheme.forms, this.props.style);
 
-            return React.createElement(
+            return _react2.default.createElement(
                 'div',
                 null,
-                React.createElement(
+                _react2.default.createElement(
                     'div',
                     { style: { marginTop: 16, marginBottom: 8 } },
                     this.props.label
@@ -70,7 +102,7 @@ var MultiToggle = function (_Component) {
                 this.props.items.map(function (item) {
                     var togglor = _this3.handleToggle.bind(_this3, item.name);
 
-                    return React.createElement(Checkbox, {
+                    return _react2.default.createElement(_Checkbox2.default, {
                         key: item.name,
                         name: item.name,
                         value: 'true',
@@ -84,23 +116,25 @@ var MultiToggle = function (_Component) {
             );
         }
     }]);
-
     return MultiToggle;
-}(Component);
+}(_react.Component);
+
+// Material UI
+
 
 MultiToggle.propTypes = {
-    label: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    items: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        value: PropTypes.bool,
-        text: PropTypes.string.isRequired
+    label: _propTypes2.default.string.isRequired,
+    onChange: _propTypes2.default.func.isRequired,
+    items: _propTypes2.default.arrayOf(_propTypes2.default.shape({
+        name: _propTypes2.default.string.isRequired,
+        value: _propTypes2.default.bool,
+        text: _propTypes2.default.string.isRequired
     })),
-    style: PropTypes.object
+    style: _propTypes2.default.object
 };
 
 MultiToggle.contextTypes = {
-    muiTheme: PropTypes.object
+    muiTheme: _propTypes2.default.object
 };
 
-export default MultiToggle;
+exports.default = MultiToggle;
