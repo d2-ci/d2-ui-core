@@ -31,7 +31,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "5.2.5",
+  "version": "5.2.6",
   "devDependencies": {
     "mkdirp": "^0.5.1"
   },
