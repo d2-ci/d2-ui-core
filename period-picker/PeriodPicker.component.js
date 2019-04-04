@@ -73,7 +73,7 @@ var styles = {
 };
 
 var getYear = function getYear(date) {
-    return new Date(date).getFullYear();
+    return new Date(date).getFullYear().toString();
 };
 var getTwoDigitMonth = function getTwoDigitMonth(date) {
     var month = new Date(date).getMonth() + 1; // Month is 0 indexed
@@ -177,6 +177,8 @@ var PeriodPicker = function (_React$Component) {
                     return this.state.year && this.state.sixMonth && this.state.year + 'S' + this.state.sixMonth;
                 case 'SixMonthlyApril':
                     return this.state.year && this.state.sixMonth && this.state.year + 'AprilS' + this.state.sixMonth;
+                case 'SixMonthlyNov':
+                    return this.state.year && this.state.sixMonth && this.state.year + 'NovS' + this.state.sixMonth;
                 case 'Yearly':
                     return this.state.year;
                 case 'FinancialApril':
@@ -364,6 +366,13 @@ var PeriodPicker = function (_React$Component) {
                         this.renderYearPicker(),
                         this.renderOptionPicker('sixMonth', { 1: 'apr-sep', 2: 'oct-mar' })
                     );
+                case 'SixMonthlyNov':
+                    return _react2.default.createElement(
+                        'div',
+                        { style: styles.line },
+                        this.renderYearPicker(),
+                        this.renderOptionPicker('sixMonth', { 1: 'nov-apr', 2: 'may-oct' })
+                    );
                 case 'Yearly':
                 case 'FinancialApril':
                 case 'FinancialJuly':
@@ -383,7 +392,7 @@ var PeriodPicker = function (_React$Component) {
 }(_react2.default.Component);
 
 PeriodPicker.propTypes = {
-    periodType: _propTypes2.default.oneOf(['Daily', 'Weekly', 'WeeklyWednesday', 'WeeklyThursday', 'WeeklySaturday', 'WeeklySunday', 'BiWeekly', 'Monthly', 'BiMonthly', 'Quarterly', 'SixMonthly', 'SixMonthlyApril', 'Yearly', 'FinancialApril', 'FinancialJuly', 'FinancialOct']).isRequired,
+    periodType: _propTypes2.default.oneOf(['Daily', 'Weekly', 'WeeklyWednesday', 'WeeklyThursday', 'WeeklySaturday', 'WeeklySunday', 'BiWeekly', 'Monthly', 'BiMonthly', 'Quarterly', 'SixMonthly', 'SixMonthlyApril', 'SixMonthlyNov', 'Yearly', 'FinancialApril', 'FinancialJuly', 'FinancialOct']).isRequired,
 
     onPickPeriod: _propTypes2.default.func.isRequired
 };
