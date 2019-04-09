@@ -1,15 +1,50 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import { Snackbar } from 'material-ui';
+'use strict';
 
-import { ACTION_MESSAGE, ERROR, LOADING, SUCCESS, WARNING } from './FeedbackSnackbarTypes';
-import FeedbackSnackbarBody from './feedback-snackbar-body/FeedbackSnackbarBody.component';
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _materialUi = require('material-ui');
+
+var _FeedbackSnackbarTypes = require('./FeedbackSnackbarTypes');
+
+var _FeedbackSnackbarBody = require('./feedback-snackbar-body/FeedbackSnackbarBody.component');
+
+var _FeedbackSnackbarBody2 = _interopRequireDefault(_FeedbackSnackbarBody);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var styles = {
     success: {
@@ -27,19 +62,18 @@ var styles = {
 };
 
 var FeedbackSnackbar = function (_PureComponent) {
-    _inherits(FeedbackSnackbar, _PureComponent);
-
-    _createClass(FeedbackSnackbar, null, [{
+    (0, _inherits3.default)(FeedbackSnackbar, _PureComponent);
+    (0, _createClass3.default)(FeedbackSnackbar, null, [{
         key: 'getStyle',
         value: function getStyle(type) {
             switch (type) {
-                case SUCCESS:
+                case _FeedbackSnackbarTypes.SUCCESS:
                     return styles.success;
-                case LOADING:
+                case _FeedbackSnackbarTypes.LOADING:
                     return styles.loading;
-                case ERROR:
+                case _FeedbackSnackbarTypes.ERROR:
                     return styles.error;
-                case WARNING:
+                case _FeedbackSnackbarTypes.WARNING:
                     return styles.warning;
                 default:
                     return null;
@@ -48,12 +82,12 @@ var FeedbackSnackbar = function (_PureComponent) {
     }]);
 
     function FeedbackSnackbar(props) {
-        _classCallCheck(this, FeedbackSnackbar);
+        (0, _classCallCheck3.default)(this, FeedbackSnackbar);
 
-        var _this = _possibleConstructorReturn(this, (FeedbackSnackbar.__proto__ || _Object$getPrototypeOf(FeedbackSnackbar)).call(this, props));
+        var _this = (0, _possibleConstructorReturn3.default)(this, (FeedbackSnackbar.__proto__ || (0, _getPrototypeOf2.default)(FeedbackSnackbar)).call(this, props));
 
         _this.handleRequestClose = function () {
-            if (_this.props.conf.type !== LOADING) {
+            if (_this.props.conf.type !== _FeedbackSnackbarTypes.LOADING) {
                 _this.setState({
                     show: false
                 });
@@ -71,12 +105,12 @@ var FeedbackSnackbar = function (_PureComponent) {
         return _this;
     }
 
-    _createClass(FeedbackSnackbar, [{
+    (0, _createClass3.default)(FeedbackSnackbar, [{
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             var _this2 = this;
 
-            var newProps = _Object$assign({}, nextProps);
+            var newProps = (0, _assign2.default)({}, nextProps);
 
             if (typeof this.state.snackbarTimerId !== 'undefined') {
                 clearTimeout(this.state.snackbarTimerId);
@@ -104,9 +138,9 @@ var FeedbackSnackbar = function (_PureComponent) {
     }, {
         key: 'render',
         value: function render() {
-            var snackBarContent = this.state.conf.type === ACTION_MESSAGE ? this.state.conf.message : React.createElement(FeedbackSnackbarBody, { type: this.state.conf.type, message: this.state.conf.message });
+            var snackBarContent = this.state.conf.type === _FeedbackSnackbarTypes.ACTION_MESSAGE ? this.state.conf.message : _react2.default.createElement(_FeedbackSnackbarBody2.default, { type: this.state.conf.type, message: this.state.conf.message });
 
-            return React.createElement(Snackbar, {
+            return _react2.default.createElement(_materialUi.Snackbar, {
                 action: this.state.conf.action,
                 onActionClick: this.state.conf.onActionClick,
                 open: this.state.show,
@@ -116,19 +150,18 @@ var FeedbackSnackbar = function (_PureComponent) {
             });
         }
     }]);
-
     return FeedbackSnackbar;
-}(PureComponent);
+}(_react.PureComponent);
 
 FeedbackSnackbar.propTypes = {
-    show: PropTypes.bool.isRequired,
-    conf: PropTypes.shape({
-        type: PropTypes.string,
-        message: PropTypes.string,
-        action: PropTypes.string,
-        onActionClick: PropTypes.func
+    show: _propTypes2.default.bool.isRequired,
+    conf: _propTypes2.default.shape({
+        type: _propTypes2.default.string,
+        message: _propTypes2.default.string,
+        action: _propTypes2.default.string,
+        onActionClick: _propTypes2.default.func
     }),
-    onClose: PropTypes.func
+    onClose: _propTypes2.default.func
 };
 FeedbackSnackbar.defaultProps = {
     conf: {
@@ -139,6 +172,4 @@ FeedbackSnackbar.defaultProps = {
     },
     onClose: null
 };
-
-
-export default FeedbackSnackbar;
+exports.default = FeedbackSnackbar;

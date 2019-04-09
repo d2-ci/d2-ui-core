@@ -1,5 +1,10 @@
-export var LOADING = 'LOADING';
-export var SUCCESS = 'SUCCESS';
-export var WARNING = 'WARNING';
-export var ERROR = 'ERROR';
-export var ACTION_MESSAGE = 'ACTION_MESSAGE';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var LOADING = exports.LOADING = 'LOADING';
+var SUCCESS = exports.SUCCESS = 'SUCCESS';
+var WARNING = exports.WARNING = 'WARNING';
+var ERROR = exports.ERROR = 'ERROR';
+var ACTION_MESSAGE = exports.ACTION_MESSAGE = 'ACTION_MESSAGE';

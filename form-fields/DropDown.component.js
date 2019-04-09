@@ -1,12 +1,37 @@
-import _extends from 'babel-runtime/helpers/extends';
-import _objectWithoutProperties from 'babel-runtime/helpers/objectWithoutProperties';
-import PropTypes from 'prop-types';
-import React from 'react';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = require('babel-runtime/helpers/objectWithoutProperties');
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _SelectField = require('material-ui/SelectField');
+
+var _SelectField2 = _interopRequireDefault(_SelectField);
+
+var _MenuItem = require('material-ui/MenuItem');
+
+var _MenuItem2 = _interopRequireDefault(_MenuItem);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function renderMenuItem(id, displayName) {
-    return React.createElement(MenuItem, { key: id, value: id, primaryText: displayName });
+    return _react2.default.createElement(_MenuItem2.default, { key: id, value: id, primaryText: displayName });
 }
 
 function renderMenuItems(_ref) {
@@ -21,7 +46,7 @@ function renderMenuItems(_ref) {
     });
 
     if (includeEmpty) {
-        var emptyMenuItem = React.createElement(MenuItem, { primaryText: emptyLabel, key: 'no_value', value: null, label: ' ' });
+        var emptyMenuItem = _react2.default.createElement(_MenuItem2.default, { primaryText: emptyLabel, key: 'no_value', value: null, label: ' ' });
         renderedMenuItems.unshift(emptyMenuItem);
     }
     return renderedMenuItems;
@@ -45,35 +70,35 @@ function DropDown(_ref3) {
         includeEmpty = _ref3.includeEmpty,
         emptyLabel = _ref3.emptyLabel,
         noOptionsLabel = _ref3.noOptionsLabel,
-        other = _objectWithoutProperties(_ref3, ['fullWidth', 'onFocus', 'onBlur', 'onChange', 'value', 'disabled', 'menuItems', 'hintText', 'includeEmpty', 'emptyLabel', 'noOptionsLabel']);
+        other = (0, _objectWithoutProperties3.default)(_ref3, ['fullWidth', 'onFocus', 'onBlur', 'onChange', 'value', 'disabled', 'menuItems', 'hintText', 'includeEmpty', 'emptyLabel', 'noOptionsLabel']);
 
     var menuItemArray = Array.isArray(menuItems) ? menuItems : menuItems.toArray();
     var hasOptions = menuItemArray.length > 0;
-    return React.createElement(
-        SelectField,
-        _extends({
+    return _react2.default.createElement(
+        _SelectField2.default,
+        (0, _extends3.default)({
             value: hasOptions ? value : 1,
             fullWidth: fullWidth,
             hintText: hintText,
             onChange: createCallbackWithFakeEventFromMaterialSelectField(onChange),
             disabled: !hasOptions || disabled
         }, other),
-        hasOptions ? renderMenuItems({ menuItems: menuItemArray, includeEmpty: includeEmpty, emptyLabel: emptyLabel }) : React.createElement(MenuItem, { value: 1, primaryText: noOptionsLabel })
+        hasOptions ? renderMenuItems({ menuItems: menuItemArray, includeEmpty: includeEmpty, emptyLabel: emptyLabel }) : _react2.default.createElement(_MenuItem2.default, { value: 1, primaryText: noOptionsLabel })
     );
 }
 
 DropDown.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]),
-    menuItems: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    onFocus: PropTypes.func,
-    disabled: PropTypes.bool,
-    fullWidth: PropTypes.bool,
-    onBlur: PropTypes.func,
-    hintText: PropTypes.string,
-    onChange: PropTypes.func.isRequired,
-    noOptionsLabel: PropTypes.string,
-    includeEmpty: PropTypes.bool,
-    emptyLabel: PropTypes.string
+    value: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number, _propTypes2.default.bool]),
+    menuItems: _propTypes2.default.oneOfType([_propTypes2.default.array, _propTypes2.default.object]),
+    onFocus: _propTypes2.default.func,
+    disabled: _propTypes2.default.bool,
+    fullWidth: _propTypes2.default.bool,
+    onBlur: _propTypes2.default.func,
+    hintText: _propTypes2.default.string,
+    onChange: _propTypes2.default.func.isRequired,
+    noOptionsLabel: _propTypes2.default.string,
+    includeEmpty: _propTypes2.default.bool,
+    emptyLabel: _propTypes2.default.string
 };
 
 DropDown.defaultProps = {
@@ -82,11 +107,11 @@ DropDown.defaultProps = {
     disabled: false,
     fullWidth: false,
     hintText: 'Select item',
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
+    onFocus: _propTypes2.default.func,
+    onBlur: _propTypes2.default.func,
     noOptionsLabel: '-',
     includeEmpty: false,
     emptyLabel: ''
 };
 
-export default DropDown;
+exports.default = DropDown;

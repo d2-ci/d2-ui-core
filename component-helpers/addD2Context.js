@@ -1,6 +1,20 @@
-import PropTypes from 'prop-types';
-import addContext from './addContext';
+'use strict';
 
-export default function addD2Context(Component) {
-    return addContext(Component, { d2: PropTypes.object });
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = addD2Context;
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _addContext = require('./addContext');
+
+var _addContext2 = _interopRequireDefault(_addContext);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function addD2Context(Component) {
+    return (0, _addContext2.default)(Component, { d2: _propTypes2.default.object });
 }

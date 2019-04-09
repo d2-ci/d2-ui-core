@@ -1,24 +1,54 @@
-import _Object$getPrototypeOf from 'babel-runtime/core-js/object/get-prototype-of';
-import _classCallCheck from 'babel-runtime/helpers/classCallCheck';
-import _createClass from 'babel-runtime/helpers/createClass';
-import _possibleConstructorReturn from 'babel-runtime/helpers/possibleConstructorReturn';
-import _inherits from 'babel-runtime/helpers/inherits';
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classes from 'classnames';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = require('babel-runtime/helpers/createClass');
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var noop = function noop() {};
 
 var Pagination = function (_Component) {
-    _inherits(Pagination, _Component);
+    (0, _inherits3.default)(Pagination, _Component);
 
     function Pagination() {
-        _classCallCheck(this, Pagination);
-
-        return _possibleConstructorReturn(this, (Pagination.__proto__ || _Object$getPrototypeOf(Pagination)).apply(this, arguments));
+        (0, _classCallCheck3.default)(this, Pagination);
+        return (0, _possibleConstructorReturn3.default)(this, (Pagination.__proto__ || (0, _getPrototypeOf2.default)(Pagination)).apply(this, arguments));
     }
 
-    _createClass(Pagination, [{
+    (0, _createClass3.default)(Pagination, [{
         key: 'render',
         value: function render() {
             var _props = this.props,
@@ -31,19 +61,19 @@ var Pagination = function (_Component) {
 
             var pagerButtonClasses = ['material-icons', 'waves-effect'];
 
-            var previousPageClasses = classes(pagerButtonClasses, { 'data-table-pager--previous-page__disabled': !hasPreviousPage() });
-            var nextPageClasses = classes(pagerButtonClasses, { 'data-table-pager--next-page__disabled': !hasNextPage() });
+            var previousPageClasses = (0, _classnames2.default)(pagerButtonClasses, { 'data-table-pager--previous-page__disabled': !hasPreviousPage() });
+            var nextPageClasses = (0, _classnames2.default)(pagerButtonClasses, { 'data-table-pager--next-page__disabled': !hasNextPage() });
 
-            return React.createElement(
+            return _react2.default.createElement(
                 'div',
                 { className: 'data-table-pager' },
-                React.createElement(
+                _react2.default.createElement(
                     'ul',
                     { className: 'data-table-pager--buttons' },
-                    total ? React.createElement(
+                    total ? _react2.default.createElement(
                         'li',
                         { className: 'data-table-pager--page-info' },
-                        React.createElement(
+                        _react2.default.createElement(
                             'span',
                             null,
                             currentlyShown,
@@ -51,10 +81,10 @@ var Pagination = function (_Component) {
                             total
                         )
                     ) : '',
-                    React.createElement(
+                    _react2.default.createElement(
                         'li',
                         { className: 'data-table-pager--previous-page' },
-                        React.createElement(
+                        _react2.default.createElement(
                             'i',
                             {
                                 className: previousPageClasses,
@@ -63,10 +93,10 @@ var Pagination = function (_Component) {
                             'navigate_before'
                         )
                     ),
-                    React.createElement(
+                    _react2.default.createElement(
                         'li',
                         { className: 'data-table-pager--next-page' },
-                        React.createElement(
+                        _react2.default.createElement(
                             'i',
                             {
                                 className: nextPageClasses,
@@ -79,17 +109,16 @@ var Pagination = function (_Component) {
             );
         }
     }]);
-
     return Pagination;
-}(Component);
+}(_react.Component);
 
 Pagination.propTypes = {
-    hasPreviousPage: PropTypes.func,
-    hasNextPage: PropTypes.func,
-    onPreviousPageClick: PropTypes.func,
-    onNextPageClick: PropTypes.func,
-    total: PropTypes.number,
-    currentlyShown: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    hasPreviousPage: _propTypes2.default.func,
+    hasNextPage: _propTypes2.default.func,
+    onPreviousPageClick: _propTypes2.default.func,
+    onNextPageClick: _propTypes2.default.func,
+    total: _propTypes2.default.number,
+    currentlyShown: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.number])
 };
 
 Pagination.defaultProps = {
@@ -101,4 +130,4 @@ Pagination.defaultProps = {
     currentlyShown: 0
 };
 
-export default Pagination;
+exports.default = Pagination;

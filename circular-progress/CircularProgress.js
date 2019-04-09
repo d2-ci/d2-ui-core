@@ -1,7 +1,28 @@
-import _Object$assign from 'babel-runtime/core-js/object/assign';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { default as MUICircularProgress } from 'material-ui/CircularProgress/CircularProgress';
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+exports.default = CircularProgress;
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _CircularProgress = require('material-ui/CircularProgress/CircularProgress');
+
+var _CircularProgress2 = _interopRequireDefault(_CircularProgress);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getSizes(large, small) {
     // Size calculations for the MUI Circular Progress (https://github.com/callemall/material-ui/releases/tag/v0.16.0-rc1)
@@ -28,24 +49,24 @@ function getSizes(large, small) {
     };
 }
 
-export default function CircularProgress(_ref) {
+function CircularProgress(_ref) {
     var large = _ref.large,
         small = _ref.small,
         style = _ref.style;
 
     var sizes = getSizes(large, small);
 
-    return React.createElement(MUICircularProgress, {
+    return _react2.default.createElement(_CircularProgress2.default, {
         mode: 'indeterminate',
         size: sizes.size,
-        style: _Object$assign({ margin: sizes.margin }, style)
+        style: (0, _assign2.default)({ margin: sizes.margin }, style)
     });
 }
 
 CircularProgress.propTypes = {
-    large: PropTypes.bool,
-    small: PropTypes.bool,
-    style: PropTypes.object
+    large: _propTypes2.default.bool,
+    small: _propTypes2.default.bool,
+    style: _propTypes2.default.object
 };
 
 CircularProgress.defaultProps = {
