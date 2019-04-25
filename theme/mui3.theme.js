@@ -100,6 +100,11 @@ var theme = exports.theme = {
     spacing: {
         unit: spacingUnit
     },
+    props: {
+        MuiMenu: {
+            disableAutoFocusItem: true
+        }
+    },
     overrides: {
         MuiDivider: {
             light: {
