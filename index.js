@@ -103,15 +103,6 @@ Object.defineProperty(exports, 'withStateFrom', {
   }
 });
 
-var _ControlBar = require('./control-bar/ControlBar');
-
-Object.defineProperty(exports, 'ControlBar', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_ControlBar).default;
-  }
-});
-
 var _FeedbackSnackbar = require('./feedback-snackbar/FeedbackSnackbar.component');
 
 Object.defineProperty(exports, 'FeedbackSnackbar', {
