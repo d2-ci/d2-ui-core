@@ -45,7 +45,6 @@ function SinglePanel(props) {
     }, mainStyle);
 
     var childToRender = void 0;
-
     if ((0, _isArray2.default)(children) && children.length) {
         childToRender = children[0];
         _loglevel2.default.warn('You passed multiple children to the <SinglePanel /> component, this is not supported');
