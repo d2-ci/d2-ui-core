@@ -24,7 +24,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _fp = require('lodash/fp');
+var _isArray = require('lodash/fp/isArray');
+
+var _isArray2 = _interopRequireDefault(_isArray);
 
 var _loglevel = require('loglevel');
 
@@ -48,7 +50,7 @@ function TwoPanelSelector(props) {
 
     var childrenToRender = void 0;
 
-    if ((0, _fp.isArray)(children)) {
+    if ((0, _isArray2.default)(children)) {
         // More than two children defeats the purpose of a two panel layout and was probably not what the
         // user of the component intended to do.
         if (children.length > 2) {

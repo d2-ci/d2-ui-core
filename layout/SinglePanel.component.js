@@ -20,7 +20,9 @@ var _propTypes = require('prop-types');
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _fp = require('lodash/fp');
+var _isArray = require('lodash/fp/isArray');
+
+var _isArray2 = _interopRequireDefault(_isArray);
 
 var _loglevel = require('loglevel');
 
@@ -43,7 +45,7 @@ function SinglePanel(props) {
     }, mainStyle);
 
     var childToRender = void 0;
-    if ((0, _fp.isArray)(children) && children.length) {
+    if ((0, _isArray2.default)(children) && children.length) {
         childToRender = children[0];
         _loglevel2.default.warn('You passed multiple children to the <SinglePanel /> component, this is not supported');
     } else {

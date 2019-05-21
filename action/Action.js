@@ -16,7 +16,9 @@ var _assign = require('babel-runtime/core-js/object/assign');
 
 var _assign2 = _interopRequireDefault(_assign);
 
-var _fp = require('lodash/fp');
+var _isString = require('lodash/fp/isString');
+
+var _isString2 = _interopRequireDefault(_isString);
 
 var _rxjs = require('rxjs');
 
@@ -101,7 +103,7 @@ var Action = {
         var actions = {};
         var actionPrefix = prefix;
 
-        if (prefix && (0, _fp.isString)(prefix)) {
+        if (prefix && (0, _isString2.default)(prefix)) {
             actionPrefix = prefix + '.';
         } else {
             actionPrefix = '';
