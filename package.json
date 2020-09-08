@@ -32,7 +32,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "7.0.5",
+  "version": "7.0.6",
   "devDependencies": {
     "mkdirp": "^0.5.1"
   },
